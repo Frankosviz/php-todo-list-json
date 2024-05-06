@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url(../img/img-pizzas.jpeg);
+    background-size: 100% cover;
+    
+}
+
+.img-fran {
+    width: 100px;
+    height: 100px;
+}
+
+nav {
+    background-image: url(../img/img3.avif);
+    height: 100px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+
+/* #container-logo {
+    height: 10vh;
+} */
+
+
+
+.container {
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+}
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/14dd55bd5d.js" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <script src="./js/script.js" type="module"></script>
+    <title>Lista ingredienti pizzeria</title>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+
+        <nav class="navbar navbar-expand-sm navbar-dark bg-white justify-content-between">
+            <div id="container-logo" class="w-25">
+                <img src="./img/img-pizza.gif" alt="Logo" class="img-fran">
+            </div>
+            <div class="text-bg-light p-3 d-flex justify-content-center align-items-center w-50">
+                <h1 class="text-danger fw-bold">
+                    Lista ingredienti Pizzeria per il weekend
+                </h1>
+            </div>
+            <div class="mb-3 w-25 d-flex justify-content-end flex-column align-items-center">
+                <label for="ingredientitext" class="form-label"></label>
+                <input type="text" class="" id="ingredientitext" v-model="ingredienteText" @keyup.enter="addIngredienti">
+                <button class="btn btn-success" @click="addIngredienti">Aggiungi</button>
+                </div>
+
+        </nav>
+        <div class="container bg-white text-danger">
+            <ul>
+                <li v-for="(item, index) in ingredienti" :key="item.id" id="myList" class="d-flex justify-content-between p-3 ">
+                    <span :class="{'text-decoration-line-through': item.acquistato}" @click="toggleAcquistato(item.id)"
+                        class="pointer fw-normal fs-5">
+                        {{ item.text }}
+                    </span>
+                    <i class="fa-thin fa-x pointer" @click="removeItem(item.id)"></i>
+                </li>
+            </ul>
+        </div>
+
+</body>
+
+</html>
+
+<!-- 
+    MILESTONE 1
+
+    Stampare all'interno di una lista HTML un item per ogni todo.
+    Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato.
+
+    MILESTONE 2
+
+    Visualizzare a fianco ad ogni item ha una "x": cliccando su di essa, il todo viene rimosso dalla lista.
+
+    MILESTONE 3
+
+    Predisporre un campo di input testuale e un pulsante "aggiungi": cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti. 
+
+    Bonus:
+    1- oltre al click sul pulsante, intercettare anche il tasto ENTER per aggiungere il todo alla lista
+    2- cliccando sul testo dell'item, invertire il valore della proprietà done del todo corrispondente (se done era uguale a false, impostare true e viceversa)
+
+-->
