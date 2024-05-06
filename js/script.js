@@ -1,16 +1,20 @@
-
-import { ingredienti } from "./data.js";
-
 const { createApp } = Vue;
 
 createApp({
     data() {
         return {
-            ingredienti: ingredienti,
-            acquistato: ''
+            ingredienti: [],
+            acquistato: '',
+            apiUrl: 'server.php'
         }
     },
     methods: {
+        getData(){
+            axios.get(this.apiUrl).then((res)=>{
+                this.ingredienti = res.data;
+            })
+        },
+
         // Creo la funzione per sbarrare gli ingredienti che sono stati gia ordinati/acquistati
         toggleAcquistato(id) {
             const ingrediente = this.ingredienti.find((el) => {
