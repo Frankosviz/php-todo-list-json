@@ -5,7 +5,8 @@ createApp({
         return {
             ingredienti: [],
             acquistato: '',
-            apiUrl: 'server.php'
+            apiUrl: 'server.php',
+            ingredienteText: '',
         }
     },
     methods: {
@@ -50,5 +51,8 @@ createApp({
             this.ingredienteText = '';
         },
         
+    },
+    mounted() {
+        this.getData();
     }
 }).mount('#app')
