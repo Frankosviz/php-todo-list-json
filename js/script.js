@@ -5,17 +5,13 @@ createApp({
         return {
             ingredienti: [],
             acquistato: '',
-            apiUrl: 'server.php',
-            ingredienteText: '',
+            // ultimoId: 25,
+            nuovoIngrediente: '',
+            apiUrl: 'data.json',
+            ingredienteText: ''
         }
     },
     methods: {
-        getData(){
-            axios.get(this.apiUrl).then((res)=>{
-                this.ingredienti = res.data;
-            })
-        },
-
         // Creo la funzione per sbarrare gli ingredienti che sono stati gia ordinati/acquistati
         toggleAcquistato(id) {
             const ingrediente = this.ingredienti.find((el) => {
@@ -35,10 +31,10 @@ createApp({
             }
         },
         addIngredienti(){
-            const newObj = {
+            const nuovoIngrediente = {
                 id: null, 
-                text: this.ingredienteText,
-                done: false
+                text: this.ingredienti.text,
+                acquistato: false
             }
             let nextId = 0;
             this.ingredienti.forEach((el)=>{
@@ -46,13 +42,20 @@ createApp({
                     nextId = el.id;
                 }
             });
-            newObj.id = nextId + 1;
-            this.ingredienti.push(newObj);
-            this.ingredienteText = '';
+            nuovoIngrediente.id = nextId + 1;
+            this.ingredienti.push(nuovoIngrediente);
+            this.ingredienti.text = '';
         },
+        // con la funzione getData andiamo a prendere i dati da axios, aggiungendo il link di axios nell'HEAD
+        getData(){
+            axios.get(this.apiUrl).then((res) => {
+                this.ingredienti = res.data;
+                // console.log(res.data);
+            })
+        }
         
     },
-    mounted() {
+    created() {
         this.getData();
     }
 }).mount('#app')

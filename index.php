@@ -1,3 +1,6 @@
+<?php
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,10 +14,10 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src ='https://unpkg.com/axios@1.6.7/dist/axios.min.js'></script>
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script src="./js/script.js" type="module"></script>
-    <title>php-todo-list-json</title>
+    <title>Lista ingredienti pizzeria</title>
 
 </head>
 
@@ -33,8 +36,8 @@
                 </h1>
             </div>
             <div class="mb-3 w-25 d-flex justify-content-end flex-column align-items-center">
-                <label for="ingredientitext" class="form-label"></label>
-                <input type="text" class="" id="ingredientetext" v-model="ingredienteText" @keyup.enter="addIngredienti">
+                <label for="ingredientetext" class="form-label"></label>
+                <input type="text" class="" id="ingredientetext" v-model="ingredienti.text" @keyup.enter="addIngredienti()">
                 <button class="btn btn-success" @click="addIngredienti">Aggiungi</button>
                 </div>
 

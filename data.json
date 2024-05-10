@@ -116,7 +116,7 @@
     },
     {
         "id": 24,
-        "text": "Mozzarela",
+        "text": "Provola affumicata",
         "acquistato": false
     },
     {
@@ -124,4 +124,4 @@
         "text": "Basilico",
         "acquistato": false
     }
-];
+]
