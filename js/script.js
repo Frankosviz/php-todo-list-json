@@ -5,10 +5,8 @@ createApp({
         return {
             ingredienti: [],
             acquistato: '',
-            // ultimoId: 25,
             nuovoIngrediente: '',
             apiUrl: 'data.json',
-            ingredienteText: ''
         }
     },
     methods: {
@@ -56,6 +54,7 @@ createApp({
         
     },
     created() {
+        // chiamiamo la nostra funzione getData() in created per farla funzionare
         this.getData();
     }
 }).mount('#app')
